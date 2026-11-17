@@ -1,0 +1,50 @@
+[package]
+name = "relic"
+version = "0.1.0"
+edition = "2021"
+authors = ["RELIC Core Contributors"]
+description = "Autonomous Bare-Metal Disaster Recovery and System Reanimation Engine in Rust"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/AceRevo/relic"
+keywords = ["bare-metal", "disaster-recovery", "storage", "rust", "cyberpunk"]
+categories = ["command-line-utilities", "filesystem", "system"]
+
+[dependencies]
+# CLI & Terminal UI
+clap = { version = "4.5", features = ["derive", "cargo"] }
+ratatui = "0.28"
+crossterm = { version = "0.28", features = ["event-stream"] }
+
+# Async & Concurrency
+tokio = { version = "1.40", features = ["full"] }
+rayon = "1.10"
+
+# Compression & Cryptography
+zstd = "0.13"
+blake3 = { version = "1.5", features = ["rayon"] }
+
+# Low-level systems & filesystems
+sysinfo = "0.31"
+bytes = "1.7"
+indicatif = { version = "0.17", features = ["rayon"] }
+
+# Serialization & Configuration
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+
+[target.'cfg(unix)'.dependencies]
+nix = { version = "0.29", features = ["fs", "mount", "ioctl"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

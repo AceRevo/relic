@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logo-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1019"/>
+      <stop offset="100%" stop-color="#040609"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcee0a"/>
+      <stop offset="100%" stop-color="#ff9900"/>
+    </linearGradient>
+    <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+    <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Hexagon -->
+  <polygon points="256,16 480,136 480,376 256,496 32,376 32,136" fill="url(#logo-bg)" stroke="#1a2636" stroke-width="4"/>
+
+  <!-- Circuit Traces -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.4" filter="url(#glow-cyan)">
+    <path d="M 256 60 L 256 120" />
+    <path d="M 120 180 L 170 180 L 200 210" />
+    <path d="M 392 180 L 342 180 L 312 210" />
+    <path d="M 256 452 L 256 392" />
+    <circle cx="256" cy="60" r="5" fill="#00f0ff"/>
+    <circle cx="120" cy="180" r="5" fill="#00f0ff"/>
+    <circle cx="392" cy="180" r="5" fill="#00f0ff"/>
+    <circle cx="256" cy="452" r="5" fill="#00f0ff"/>
+  </g>
+
+  <!-- Outer Cybernetic Biochip Frame -->
+  <polygon points="256,76 420,166 420,346 256,436 92,346 92,166" fill="none" stroke="url(#gold-grad)" stroke-width="6" filter="url(#glow-gold)"/>
+
+  <!-- Inner Processing Core -->
+  <polygon points="256,130 365,190 365,322 256,382 147,322 147,190" fill="rgba(0, 240, 255, 0.05)" stroke="url(#cyan-grad)" stroke-width="3" filter="url(#glow-cyan)"/>
+
+  <!-- Center Monolith Node -->
+  <circle cx="256" cy="256" r="38" fill="url(#gold-grad)" filter="url(#glow-gold)"/>
+  <circle cx="256" cy="256" r="16" fill="#0b1019"/>
+  <circle cx="256" cy="256" r="6" fill="#00f0ff"/>
+</svg>

@@ -1,0 +1,28 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Logs & Dumps
+*.log
+*.dump
+/crash_reports/
+/engrams/*.raw
+/engrams/*.zst
+!/engrams/.gitkeep
+
+# Build artifacts
+/build/
+/dist/
